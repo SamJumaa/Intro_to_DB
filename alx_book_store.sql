@@ -16,46 +16,46 @@ mycursor.execute ("""
 """)
 
 mycursor.execute ("""
-    CREATE TABLE BOOKS(
-        BOOK_ID INT AUTO_INCREMENT PRIMARY KEY,
-        TITLE VARCHAR(130),
-        AUTHOR_ID INT,
-        PRICE DOUBLE,
-        PUBLICATION_DATE DATE,
-        FOREIGN KEY (AUTHOR_ID) REFERENCES AUTHORS(AUTHOR_ID)
+    CREATE TABLE Books(
+        book_id INT AUTO_INCREMENT PRIMARY KEY,
+        title VARCHAR(130),
+        author_id INT,
+        price DOUBLE,
+        publication_date DATE,
+        FOREIGN KEY (author_id) REFERENCES Authors(author_id)
 
     )
     
 """)
 
 mycursor.execute ("""
-    CREATE TABLE CUSTOMERS(
-        CUSTOMER_ID INT AUTO_INCREMENT PRIMARY KEY,
-        CUSTOMER_NAME VARCHAR(215),
-        EMAIL VARCHAR(215),
-        ADDRESS TEXT
+    CREATE TABLE Customers(
+        customer_id INT AUTO_INCREMENT PRIMARY KEY,
+        customer_name VARCHAR(215),
+        email VARCHAR(215),
+        address TEXT
     )
 
 """)    
 
 mycursor.execute ("""
-    CREATE TABLE ORDERS(
-        ORDER_ID INT AUTO_INCREMENT PRIMARY KEY,
-        CUSTOMER_ID INT,
-        ORDER_DATE DATE,
-        FOREIGN KEY (CUSTOMER_ID) REFERENCES CUSTOMERS (CUSTOMER_ID)
+    CREATE TABLE Orders(
+        order_id INT AUTO_INCREMENT PRIMARY KEY,
+        customer_id INT,
+        order_date DATE,
+        FOREIGN KEY (customer_id) REFERENCES Customers (customer_id)
     )
     
 """)  
 
 mycursor.execute ("""
-    CREATE TABLE ORDER_DETAILS(
-        ORDERDETAILID INT AUTO_INCREMENT PRIMARY KEY,
-        ORDER_ID INT,
-        BOOK_ID INT, 
-        QUANTITY DOUBLE,
-        FOREIGN KEY (ORDER_ID)REFERENCES ORDERS(ORDER_ID),
-        FOREIGN KEY(BOOK_ID ) REFERENCES BOOKS (BOOK_ID)
+    CREATE TABLE Order_details(
+        orderdetailid INT AUTO_INCREMENT PRIMARY KEY,
+        order_id INT,
+        book_id INT, 
+        quantity DOUBLE,
+        FOREIGN KEY (order_id)REFERENCES Orders (order_id),
+        FOREIGN KEY(book_id) REFERENCES Books (book_id)
     )
     
 """)  
