@@ -7,9 +7,9 @@ mycursor.execute ("CREATE DATABASE IF NOT EXISTS alx_book_store")
 mycursor.execute ("USE alx_book_store")
 
 mycursor.execute ("""
-    CREATE TABLE AUTHORS(
-        AUTHOR_ID INT AUTO_INCREMENT PRIMARY KEY,
-        AUTHOR_NAME VARCHAR(215)
+    CREATE TABLE Authors(
+        author_id INT AUTO_INCREMENT PRIMARY KEY,
+        author_name VARCHAR(215)
 
     )
 
